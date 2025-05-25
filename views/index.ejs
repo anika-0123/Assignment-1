@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Scheduler</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Tasks</h1>
+  <a href="/tasks/create">+ Add Task</a>
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li>
+        <strong><%= task.title %></strong> - <%= task.status %>
+        <a href="/tasks/edit/<%= task._id %>">Edit</a>
+        <form action="/tasks/delete/<%= task._id %>" method="POST" style="display:inline;">
+          <button>Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
